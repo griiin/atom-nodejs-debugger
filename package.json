@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-debugger",
+  "main": "./lib/nodejs-debugger",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationEvents": ["nodejs-debugger:toggle"],
+  "repository": "https://github.com/atom/nodejs-debugger",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable nodejs-debugger': 'nodejs-debugger:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'nodejs-debugger'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'nodejs-debugger:toggle' }
+      ]
+    ]
+  }
+]
