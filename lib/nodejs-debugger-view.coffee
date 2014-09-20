@@ -3,8 +3,8 @@
 module.exports =
 class NodejsDebuggerView extends View
   @content: ->
-    @div class: 'nodejs-debugger overlay from-top', =>
-      @div "The NodejsDebugger package is Alive! It's ALIVE!", class: "message"
+    @div class: 'witness', =>
+      @div "ON", class: "active"
 
   initialize: (serializeState) ->
     atom.workspaceView.command "nodejs-debugger:toggle", => @toggle()
