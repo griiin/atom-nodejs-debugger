@@ -3,12 +3,28 @@
   "main": "./lib/nodejs-debugger",
   "version": "0.0.0",
   "description": "A short description of your package",
-  "activationEvents": ["nodejs-debugger:toggle"],
-  "repository": "https://github.com/atom/nodejs-debugger",
-  "license": "MIT",
+  "activationEvents": [
+    "nodejs-debugger:toggle"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/nodejs-debugger"
+  },
+  "license": "Apache v2",
   "engines": {
     "atom": ">0.50.0"
   },
   "dependencies": {
-  }
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/nodejs-debugger/issues"
+  },
+  "homepage": "https://github.com/atom/nodejs-debugger",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julien Nigri"
 }

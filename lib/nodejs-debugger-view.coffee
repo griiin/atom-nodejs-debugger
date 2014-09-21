@@ -17,7 +17,7 @@ class NodejsDebuggerView extends View
     @detach()
 
   toggle: ->
-    console.log "NodejsDebuggerView was toggled!"
+    # console.log "NodejsDebuggerView was toggled!"
     if @hasParent()
       @detach()
     else

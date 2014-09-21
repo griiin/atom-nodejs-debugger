@@ -18,3 +18,31 @@
     color: #0F0;
   }
 }
+
+// .editor.react .gutter .line-number {
+//   padding-right: 1em;
+//   padding-right: 0em;
+// }
+.gutter {
+  &.debug-mode {
+  }
+}
+
+.breakpoint {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  margin-right: 3px;
+  opacity: 0;
+  cursor: pointer;
+  &.active {
+    color: red;
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
