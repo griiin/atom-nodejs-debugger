@@ -25,11 +25,14 @@
 }
 
 .breakpoint {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
+  @size: 11px;
+  display: block;
+  float: left;
+  margin-top: 2px;
+  width: @size;
+  height: @size;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: @size;
   margin-right: 3px;
   opacity: 0;
   cursor: pointer;
