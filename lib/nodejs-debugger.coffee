@@ -1,9 +1,6 @@
 NodejsDebuggerView = require './nodejs-debugger-view'
 $ = require 'jquery'
 _ = require 'lodash'
-#4 debug purpose
-window.$ = $
-window._ = _
 
 module.exports =
   nodejsDebuggerView: null
