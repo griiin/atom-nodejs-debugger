@@ -5,16 +5,14 @@ _ = require 'lodash'
 module.exports =
   nodejsDebuggerView: null
   isActive: false
-  currentMarker: null
   $container: null
 
   clean: ->
     $('.gutter').removeClass('debug-mode')
-    $('.breakpoint', @$container).remove() if @$container
-    @currentMarker.destroy() if @currentMarker
+    $('.breakpoint').remove()
 
   init: ->
-    core = ->
+    test = ->
       editor = atom.workspace.activePaneItem
       $('.gutter').removeClass('debug-mode')
       setTimeout ->
@@ -44,8 +42,8 @@ module.exports =
         $(newItems).prepend($bb)
     editor = atom.workspace.activePaneItem
     editor.onDidChangeCursorPosition ->
-      core()
-    core()
+      test()
+    test()
 
   toggle: ->
     if @isActive
