@@ -2,6 +2,9 @@ NodejsDebuggerView = require './nodejs-debugger-view'
 $ = require 'jquery'
 _ = require 'lodash'
 
+class Main
+
+
 module.exports =
   nodejsDebuggerView: null
   isActive: false
@@ -11,39 +14,39 @@ module.exports =
     $('.gutter').removeClass('debug-mode')
     $('.breakpoint').remove()
 
-  init: ->
-    test = ->
-      editor = atom.workspace.activePaneItem
-      $('.gutter').removeClass('debug-mode')
-      setTimeout ->
-        $('.gutter').addClass('debug-mode')
-        @$container = $('.line-number')
-        newItems = _.where($('.line-number'), (item) ->
-          $('.breakpoint', item).length is 0
-        )
-        $bb = $('<div class="breakpoint"></div>')
-        $bb.click((event) ->
-          $bb = $(event.currentTarget)
-          parent = $bb.parent()
-          classes = _.where(parent.attr('class').split(/\s+/), (item) ->
-            pattern = /line-number-[0-9]+/
-            pattern.test(item)
-          )
-          if classes.length is 1
-            nb = classes[0].replace("line-number-", "")
-            nb = parseInt(nb) + 1
-            if $bb.hasClass("active")
-              $bb.removeClass("active")
-              console.log "remove breakpoint on line: ", nb
-            else
-              $bb.addClass("active")
-              console.log "add breakpoint on line: ", nb
-        )
-        $(newItems).prepend($bb)
+  core: ->
     editor = atom.workspace.activePaneItem
-    editor.onDidChangeCursorPosition ->
-      test()
-    test()
+    $('.gutter').removeClass('debug-mode')
+    setTimeout ->
+      $('.gutter').addClass('debug-mode')
+      @$container = $('.line-number')
+      newItems = _.where($('.line-number'), (item) ->
+        $('.breakpoint', item).length is 0
+      )
+      breakpoint = $('<div class="breakpoint"></div>')
+      breakpoint.click((event) ->
+        breakpoint = $(event.currentTarget)
+        parent = breakpoint.parent()
+        classes = _.where(parent.attr('class').split(/\s+/), (item) ->
+          pattern = /line-number-[0-9]+/
+          pattern.test(item)
+        )
+        if classes.length is 1
+          nb = classes[0].replace("line-number-", "")
+          nb = parseInt(nb) + 1
+          if breakpoint.hasClass("active")
+            breakpoint.removeClass("active")
+            console.log "remove breakpoint on line: ", nb
+          else
+            breakpoint.addClass("active")
+            console.log "add breakpoint on line: ", nb
+      )
+      $(newItems).prepend(breakpoint)
+
+  init: ->
+    editor = atom.workspace.activePaneItem
+    editor.onDidChangeCursorPosition(_.bind(@core, this))
+    @core()
 
   toggle: ->
     if @isActive
