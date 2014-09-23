@@ -8,7 +8,6 @@ class Main
 module.exports =
   nodejsDebuggerView: null
   isActive: false
-  $container: null
 
   clean: ->
     $('.gutter').removeClass('debug-mode')
@@ -19,7 +18,6 @@ module.exports =
     $('.gutter').removeClass('debug-mode')
     setTimeout ->
       $('.gutter').addClass('debug-mode')
-      @$container = $('.line-number')
       newItems = _.where($('.line-number'), (item) ->
         $('.breakpoint', item).length is 0
       )
